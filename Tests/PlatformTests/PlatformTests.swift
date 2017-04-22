@@ -8,19 +8,18 @@
  * See CONTRIBUTORS.txt for the list of the project authors
  */
 
-import XCTest
 @testable import Platform
 
-class PlatformTests: XCTestCase {
+class PlatformTests: TestCase {
     func testRandom() {
         let first = arc4random()
         let second = arc4random()
-        XCTAssertNotEqual(first, second)
+        assertNotEqual(first, second)
     }
 
     func testRandomUniform() {
         for _ in 0..<1_000 {
-            XCTAssert(arc4random_uniform(12) < 12)
+            assert(arc4random_uniform(12) < 12)
         }
     }
 
@@ -29,14 +28,12 @@ class PlatformTests: XCTestCase {
         var second = [UInt8](repeating: 0, count: 10)
         arc4random_buf(&first, first.count)
         arc4random_buf(&second, second.count)
-        XCTAssertNotEqual(first, second)
+        assertNotEqual(first, second)
     }
 
 
-    static var allTests : [(String, (PlatformTests) -> () throws -> Void)] {
-        return [
-            ("testRandom", testRandom),
-            ("testRandomUniform", testRandomUniform),
-        ]
-    }
+    static var allTests = [
+        ("testRandom", testRandom),
+        ("testRandomUniform", testRandomUniform),
+    ]
 }
