@@ -1,3 +1,4 @@
+// swift-tools-version:4.0
 /*
  * Copyright 2017 Tris Foundation and the project authors
  *
@@ -11,5 +12,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "Platform"
+    name: "Platform",
+    products: [
+        .library(name: "Platform", targets: ["Platform"])
+    ],
+    dependencies: [
+        .package(
+            url: "https://github.com/tris-foundation/test.git",
+            from: "0.4.0"
+        )
+    ],
+    targets: [
+        .target(name: "Platform"),
+        .testTarget(name: "PlatformTests", dependencies: ["Platform", "Test"])
+    ]
 )
