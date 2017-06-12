@@ -36,5 +36,6 @@ class PlatformTests: TestCase {
     static var allTests = [
         ("testRandom", testRandom),
         ("testRandomUniform", testRandomUniform),
+        ("testRandomBuffer", testRandomBuffer),
     ]
 }
