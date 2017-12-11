@@ -20,7 +20,7 @@ class PlatformTests: TestCase {
 
     func testRandomUniform() {
         for _ in 0..<1_000 {
-            assert(arc4random_uniform(12) < 12)
+            assertTrue(arc4random_uniform(12) < 12)
         }
     }
 
