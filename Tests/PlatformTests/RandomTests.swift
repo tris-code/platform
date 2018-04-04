@@ -20,6 +20,7 @@ class PlatformTests: TestCase {
 
     func testRandomUniform() {
         for _ in 0..<1_000 {
+            assertTrue(arc4random_uniform(12) >= 0)
             assertTrue(arc4random_uniform(12) < 12)
         }
     }
@@ -31,11 +32,4 @@ class PlatformTests: TestCase {
         arc4random_buf(&second, second.count)
         assertNotEqual(first, second)
     }
-
-
-    static var allTests = [
-        ("testRandom", testRandom),
-        ("testRandomUniform", testRandomUniform),
-        ("testRandomBuffer", testRandomBuffer),
-    ]
 }
