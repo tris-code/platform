@@ -2,6 +2,7 @@ import XCTest
 
 extension EnvironmentTests {
     static let __allTests = [
+        ("testDynamicMemberLookup", testDynamicMemberLookup),
         ("testEnvironment", testEnvironment),
     ]
 }
