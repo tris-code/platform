@@ -10,7 +10,7 @@
  ******************************************************************************/
 
 import Test
-@testable import Platform
+import Platform
 
 class EnvironmentTests: TestCase {
     func testEnvironment() {

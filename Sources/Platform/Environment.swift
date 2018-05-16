@@ -13,7 +13,7 @@ public let Environment = Environ()
 
 @dynamicMemberLookup
 public struct Environ {
-    subscript(dynamicMember key: String) -> String? {
+    public subscript(dynamicMember key: String) -> String? {
         get { return self[key] }
         nonmutating set { self[key] = newValue }
     }
