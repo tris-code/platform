@@ -24,4 +24,8 @@ class EnvironmentTests: TestCase {
         Environment.testDynamicMemberLookup = "test"
         assertEqual(Environment.testDynamicMemberLookup, "test")
     }
+
+    func testValues() {
+        assertTrue(Environment.values.count > 0)
+    }
 }
