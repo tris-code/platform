@@ -27,6 +27,7 @@ extension MemoryTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__MemoryTests = [
+        ("testPage", testPage),
         ("testSize", testSize),
         ("testSizeRepresentation", testSizeRepresentation),
         ("testSizeRepresentationRounding", testSizeRepresentationRounding),

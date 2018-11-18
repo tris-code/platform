@@ -10,6 +10,10 @@
  ******************************************************************************/
 
 public enum Memory {
+    public static var size: Size = {
+        return Page.size * Page.count
+    }()
+
     public struct Size {
         var bytesCount: Int
 
@@ -19,11 +23,15 @@ public enum Memory {
         }
     }
 
-    public static var size: Size = {
-        var size = sysconf(_SC_PHYS_PAGES)
-        size *= sysconf(_SC_PAGESIZE)
-        return Size(bytesCount: size)
-    }()
+    public struct Page {
+        public static var count: Int = {
+            return sysconf(_SC_PHYS_PAGES);
+        }()
+
+        public static var size: Size = {
+            return .init(bytesCount: sysconf(_SC_PAGESIZE))
+        }()
+    }
 }
 
 extension Memory.Size {
@@ -246,6 +254,32 @@ extension Memory.Size: Numeric {
         }
         bytesCount = value
     }
+}
+
+extension Memory.Size {
+    public static func + (lhs: Memory.Size, rhs: Int) -> Memory.Size {
+        return .init(bytesCount: lhs.bytesCount + rhs)
+    }
+
+    public static func += (lhs: inout Memory.Size, rhs: Int) {
+        lhs.bytesCount += rhs
+    }
+
+    public static func - (lhs: Memory.Size, rhs: Int) -> Memory.Size {
+        return .init(bytesCount: lhs.bytesCount - rhs)
+    }
+
+    public static func -= (lhs: inout Memory.Size, rhs: Int) {
+        lhs.bytesCount -= rhs
+    }
+
+    public static func * (lhs: Memory.Size, rhs: Int) -> Memory.Size {
+        return .init(bytesCount: lhs.bytesCount * rhs)
+    }
+
+    public static func *= (lhs: inout Memory.Size, rhs: Int) {
+        lhs.bytesCount *= rhs
+    }    
 }
 
 // MARK: Comparable
