@@ -18,6 +18,7 @@ extension EnvironmentTests {
     static let __allTests__EnvironmentTests = [
         ("testDynamicMemberLookup", testDynamicMemberLookup),
         ("testEnvironment", testEnvironment),
+        ("testEnvironmentValuesWithEqualSignInTheValue", testEnvironmentValuesWithEqualSignInTheValue),
         ("testValues", testValues),
     ]
 }
