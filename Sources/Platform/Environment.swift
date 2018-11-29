@@ -53,7 +53,7 @@ public struct Environ {
         }
     }
 
-    public lazy var values: [String : String] = {
+    public var values: [String : String] {
         var values: [String: String] = [:]
 
         var pointer = environ
@@ -75,5 +75,5 @@ public struct Environ {
         }
 
         return values
-    }()
+    }
 }
