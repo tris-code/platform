@@ -1,14 +1,3 @@
-/******************************************************************************
- *                                                                            *
- * Tris Foundation disclaims copyright to this source code.                   *
- * In place of a legal notice, here is a blessing:                            *
- *                                                                            *
- *     May you do good and not evil.                                          *
- *     May you find forgiveness for yourself and forgive others.              *
- *     May you share freely, never taking more than you give.                 *
- *                                                                            *
- ******************************************************************************/
-
 #if os(Linux)
 let _SC_NPROCESSORS_ONLN = Int32(Glibc._SC_NPROCESSORS_ONLN)
 let _SC_NPROCESSORS_CONF = Int32(Glibc._SC_NPROCESSORS_CONF)

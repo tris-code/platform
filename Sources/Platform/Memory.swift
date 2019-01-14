@@ -1,14 +1,3 @@
-/******************************************************************************
- *                                                                            *
- * Tris Foundation disclaims copyright to this source code.                   *
- * In place of a legal notice, here is a blessing:                            *
- *                                                                            *
- *     May you do good and not evil.                                          *
- *     May you find forgiveness for yourself and forgive others.              *
- *     May you share freely, never taking more than you give.                 *
- *                                                                            *
- ******************************************************************************/
-
 #if os(Linux)
 let _SC_PHYS_PAGES = Int32(Glibc._SC_PHYS_PAGES)
 let _SC_PAGESIZE = Int32(Glibc._SC_PAGESIZE)
@@ -284,7 +273,7 @@ extension Memory.Size {
 
     public static func *= (lhs: inout Memory.Size, rhs: Int) {
         lhs.bytesCount *= rhs
-    }    
+    }
 }
 
 // MARK: Comparable
